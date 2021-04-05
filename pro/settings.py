@@ -16,7 +16,10 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR = os.path.join(BASE_DIR,"templates")
-
+APP1 = os.path.join(BASE_DIR,"app")
+APP2 = os.path.join(BASE_DIR,"app2")
+TEMPLATE_DIR_APP1 = os.path.join(APP1,'templates')
+TEMPLATE_DIR_APP2 = os.path.join(APP2,'templates')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -40,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'app2',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +61,7 @@ ROOT_URLCONF = 'pro.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_DIR],
+        'DIRS': [TEMPLATE_DIR,TEMPLATE_DIR_APP1,TEMPLATE_DIR_APP2],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
